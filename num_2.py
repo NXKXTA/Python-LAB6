@@ -1,5 +1,4 @@
 def matrix_multiplication(A, B):
-    # Determine the matrices' dimensions.
     rows_a = len(A)
     cols_a = len(A[0])
     cols_b = len(B[0])
