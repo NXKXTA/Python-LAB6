@@ -1,15 +1,3 @@
-def is_natural_and_positive(num):
-    if num.isnumeric() and int(num) > 0:
-        try:
-            num = int(num)
-            return True
-        except ValueError:
-            print("Введено не натуральное число")
-            exit()
-    print("Введено не натуральное число")
-    exit()
-
-
 def inp(arr):
     for i in range(len(arr)):
         try:
@@ -21,30 +9,39 @@ def inp(arr):
 
 
 # Создание списка
-size = input('Введите размер списка: ')
-is_natural_and_positive(size)
-zero_lst = [0 for i in range(int(size))]
+try:
+    array_size = int(input("Введите размер массива: "))
+except ValueError:
+    print("Вы ввели не целое число")
+    exit()
+
+if array_size <= 0:
+    print("Вы ввели не натуральное число")
+    exit()
+
+zero_lst = [0 for i in range(array_size)]
 lst = inp(zero_lst)
 
 # Поиск моды списка
 if len(lst) == len(set(lst)) and len(lst) != 1:
+    # Если ввести список из одного элемента, то без второго условия программа его забракует
     print("Массив не имеет моды")
     exit()
 
 # Поиск самых часто встречающихся чисел
 k = 0
-max = 0
+mx = 0
 temp = []
 for i in set(lst):
     for j in lst:
         if i == j:
             k += 1
-    if k > max:
-        max = k
+    if k > mx:
+        mx = k
     k = 0
 
 for i in set(lst):
-    if lst.count(i) == max:
+    if lst.count(i) == mx:
         temp.append(i)
 if len(temp) > 1:
     print("Моды массива нет")

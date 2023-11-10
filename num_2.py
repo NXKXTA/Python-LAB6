@@ -1,19 +1,18 @@
 def matrix_multiplication(A, B):
     # Determine the matrices' dimensions.
-    rows_A = len(A)
-    cols_A = len(A[0])
-    rows_B = len(B)
-    cols_B = len(B[0])
+    rows_a = len(A)
+    cols_a = len(A[0])
+    cols_b = len(B[0])
     # Установить матрицу результатов в нули.
-    result = [[0 for row in range(cols_B)] for col in range(rows_A)]
-    for s in range(rows_A):
-        for j in range(cols_B):
-            for k in range(cols_A):
+    result = [[0 for _ in range(cols_b)] for __ in range(rows_a)]
+    for s in range(rows_a):
+        for j in range(cols_b):
+            for k in range(cols_a):
                 result[s][j] += A[s][k] * B[k][j]
     return result
 
 
-def inpm(arr):
+def input_in_matrix(arr):
     for i in range(len(arr)):
         for j in range(len(arr[0])):
             try:
@@ -41,9 +40,9 @@ matrix_1 = [[0 for i in range(K)] for j in range(M)]
 matrix_2 = [[0 for i in range(N)] for j in range(K)]
 
 print("Введите матрицу 1: ")
-matrix_1 = inpm(matrix_1)
+matrix_1 = input_in_matrix(matrix_1)
 print("Введите матрицу 2: ")
-matrix_2 = inpm(matrix_2)
+matrix_2 = input_in_matrix(matrix_2)
 
 print("Введенные матрицы: ")
 print(matrix_1, "\n")
